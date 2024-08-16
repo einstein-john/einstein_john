@@ -1,0 +1,57 @@
+body, html, .background {
+  margin: 0;
+  color: aliceblue;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* From Uiverse.io by joe-watson-sbf */ 
+.card {
+  width: 510px;
+  height: 554px;
+  border-radius: 4px;
+  display: flex;
+  gap: 5px;
+  padding: .4em;
+ 
+}
+
+.card .box {
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 1s;
+  background: #212121;
+  border: 1.5px solid #d85e0c;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card .box:hover {
+  flex: 4; 
+  
+}
+
+
+.card .box span {
+  min-width: 14em;
+  padding: .5em;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: all .5s;
+  text-transform: uppercase;
+  color: #d85e0c;
+  letter-spacing: .1em;
+}
+
+.card .box:hover span {
+  transform: rotate(0);
+}
