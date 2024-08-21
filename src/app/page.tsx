@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-
   const [makesCount, setMakesCount] = useState<number>(0);
   const [modelsCount, setModelsCount] = useState<number>(0);
   const [variantsCount, setVariantsCount] = useState<number>(0);
@@ -11,19 +10,25 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const makesResponse = await fetch('https://whitebook-engine.kuala.io/get-vehicle-makes');
+        const makesResponse = await fetch(
+          "https://whitebook-engine.kuala.io/get-vehicle-makes"
+        );
         const makesData = await makesResponse.json();
         setMakesCount(makesData.data.length);
 
-        const modelsResponse = await fetch('https://whitebook-engine.kuala.io/model');
+        const modelsResponse = await fetch(
+          "https://whitebook-engine.kuala.io/model"
+        );
         const modelsData = await modelsResponse.json();
         setModelsCount(modelsData.data.length);
 
-        const variantsResponse = await fetch('https://whitebook-engine.kuala.io/get-vehicle-variants/24');
+        const variantsResponse = await fetch(
+          "https://whitebook-engine.kuala.io/get-vehicle-variants/24"
+        );
         const variantsData = await variantsResponse.json();
         setVariantsCount(variantsData.data.length);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -32,28 +37,35 @@ export default function Home() {
 
   return (
     <div className="background">
- <div className="card">
-    <div className="box"><span><h3>Vehicle Makes</h3></span>  
-    <div className="content">
-      
-        <p className="api_value box"> {makesCount}  </p>
-        {/* <br />vehicles */}
-        
-           </div>
-    </div>
-    
-    <div className="box"><span><h3>Vehicle Models</h3></span>
-    <div className="content">
-        <p className="api_value box">{modelsCount}</p>
+      <div className="card">
+        <div className="box">
+          <span>
+            <h3>Vehicle Makes</h3>
+          </span>
+          <div className="content">
+            <p className="api_value box">&nbsp;{makesCount}&nbsp; </p>
+            {/* <br />vehicles */}
+          </div>
+        </div>
+
+        <div className="box">
+          <span>
+            <h3>Vehicle Models</h3>
+          </span>
+          <div className="content">
+            <p className="api_value box">&nbsp;{modelsCount}&nbsp;</p>
+          </div>
+        </div>
+
+        <div className="box">
+          <span>
+            <h3>Variants Count</h3>
+          </span>
+          <div className="content">
+            <p className="api_value box">&nbsp;{variantsCount}&nbsp;</p>
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <div className="box"><span><h3>Variants Count</h3></span>
-      <div className="content">
-        <p className="api_value box"> {variantsCount}</p>
-      </div>
-    </div>
-</div>
     </div>
   );
 }
