@@ -59,9 +59,19 @@ body, html, .background {
   transform: rotate(0);
 }
 
-@media(max-width: 400px){
+@media(max-width: 600px){
   .card{
-    height: 454px;
-    width: 410px;
+    height: 354px;
+    width: 310px;
+  }
+  .card .box span {
+    min-width: 8em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #d85e0c;
+    letter-spacing: .1em;
   }
 }
